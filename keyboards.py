@@ -55,12 +55,15 @@ def one_to_two(*args, n=8):
 
 def gomoku_keyb(*keys):
     callback = callback_data_button()
+
     buttons = keys[0]
 
     dict_out = []
-    for x, i in zip(buttons, callback):
+    data = 0
+    for x in buttons:
         for y in x:
-            dict_out.append(InlineKeyboardButton(y, callback_data=str(i)))
+            dict_out.append(InlineKeyboardButton(y, callback_data=str(callback[data])))
+            data += 1
 
     # convert one-dimensional list in two-dimensional            
     dict_out = one_to_two(dict_out)
