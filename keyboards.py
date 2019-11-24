@@ -15,25 +15,6 @@ text_o = 'O'
 text_x = 'X'
 
 
-
-
-
-# list contained keyboard 8x8
-def inline_keys(n=8):
-    field = [[text_none for i in range(n)]] * n
-    return field
-
-
-# list contained callback_data for each button (1-64)
-def callback_data_button():
-    data = []
-    for i in range(1, 65):
-        data.append(str(i))
-    return data
-
-
-
-
 # this func takes one-dimensional list '*args'
 # and make with them two-dimensional list n*n
 # return two-dimensional list
@@ -49,6 +30,27 @@ def one_to_two(*args, n=8):
         del list_of_list   
 
     return two_dimensional
+
+
+
+# list contained keyboard 8x8
+def inline_keys(n=8):
+    keys = [text_none for i in range(n*n)]
+    desk = one_to_two(keys)
+    return desk
+
+
+# list contained callback_data for each button (1-64)
+def callback_data_button():
+    data = []
+    for i in range(1, 65):
+        data.append(str(i))
+    return data
+
+
+
+
+
 
 
 
