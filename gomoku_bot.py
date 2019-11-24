@@ -6,7 +6,7 @@ import settings
 
 from keyboards import my_keyboard, gomoku_keyb, inline_keys
 
-
+from gomoku_logic import gomoku_start, gomoku_game
 
 
 #enable logging
@@ -28,19 +28,7 @@ def start(update, context):
     update.message.reply_text(text=text, reply_markup=my_keyboard())
 
 
-def gomoku_start(update, context):
-    text = 'Hello! Wanna play gomoku?' 
-    
 
-    update.message.reply_text(text=text, reply_markup=gomoku_keyb(inline_keys()))
-
-    # это норм тема. убрал пока для теста
-    # update.message.reply_text(text=text, reply_markup=gomoku_keyb(*inline_keys()))
-
-
-
-def gomoku_game(update, context):
-    print("it's working")
 
 
 

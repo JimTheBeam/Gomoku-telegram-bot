@@ -61,7 +61,8 @@ def gomoku_keyb(*keys):
     for x, i in zip(buttons, callback):
         for y in x:
             dict_out.append(InlineKeyboardButton(y, callback_data=str(i)))
-                
+
+    # convert one-dimensional list in two-dimensional            
     dict_out = one_to_two(dict_out)
 
     keyboard = InlineKeyboardMarkup(dict_out)
