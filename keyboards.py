@@ -20,7 +20,7 @@ text_x = 'X'
 
 # list contained keyboard 8x8
 def inline_keys(n=8):
-    field = [[str(i) for i in range(n)]] * n
+    field = [[text_none for i in range(n)]] * n
     return field
 
 

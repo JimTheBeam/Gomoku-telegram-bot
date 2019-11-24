@@ -39,10 +39,17 @@ def main():
     dp = mybot.dispatcher
 
     dp.add_handler(CommandHandler('start', start))
-    dp.add_handler(MessageHandler(Filters.regex('^(Play Gomoku)$'), gomoku_start))
 
-    dp.add_handler(CallbackQueryHandler(gomoku_game))
 
+    gomoku_game_handler = ConversationHandler(
+            entry_points=[MessageHandler(Filters.regex('^(Play Gomoku)$'), gomoku_start)],
+            states={
+                'GOMOKU_GAME' : [CallbackQueryHandler(gomoku_game)]
+            },
+            fallbacks=[MessageHandler(Filters.regex('^(Play Gomoku)$'), gomoku_start),
+            CommandHandler('start', start)]
+            )
+    dp.add_handler(gomoku_game_handler)
 
     mybot.start_polling()
     mybot.idle()
