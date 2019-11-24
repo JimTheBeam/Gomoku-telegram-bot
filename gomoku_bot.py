@@ -4,7 +4,10 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters,\
 
 import settings
 
-from keyboards import my_keyboard, gomoku_keyb, inline_keys, test_keyboard
+from keyboards import my_keyboard, gomoku_keyb, inline_keys
+
+
+
 
 #enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -29,7 +32,7 @@ def gomoku_start(update, context):
     text = 'Hello! Wanna play gomoku?' 
     
 
-    update.message.reply_text(text=text, reply_markup=my_keyboard())
+    update.message.reply_text(text=text, reply_markup=gomoku_keyb(inline_keys()))
 
     # это норм тема. убрал пока для теста
     # update.message.reply_text(text=text, reply_markup=gomoku_keyb(*inline_keys()))
